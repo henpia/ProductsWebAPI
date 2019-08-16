@@ -16,10 +16,16 @@ namespace WebAPI.Repositories
             _context = context;
         }
 
+
         public IEnumerable<Product> GetProducts()
         {
             var products = _context.Products;
             return products;
+        }
+        public void CreateProduct(Product product)
+        {
+            _context.Products.Add(product);
+            _context.SaveChanges();
         }
     }
 }

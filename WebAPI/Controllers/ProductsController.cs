@@ -24,5 +24,17 @@ namespace WebAPI.Controllers
             var products = _productRepo.GetProducts();
             return products;
         }
+
+        [HttpPost]
+        public IHttpActionResult CreateProduct([FromBody] Product product)
+        {
+            if (product == null)
+            {
+                return BadRequest();
+            }
+
+            _productRepo.CreateProduct(product);
+            return StatusCode(HttpStatusCode.Created);
+        }
     }
 }

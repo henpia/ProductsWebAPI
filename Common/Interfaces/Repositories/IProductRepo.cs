@@ -8,5 +8,6 @@ namespace Common.Interfaces.Repositories
     public interface IProductRepo
     {
         IEnumerable<Product> GetProducts();
+        void CreateProduct(Product product);
     }
 }
