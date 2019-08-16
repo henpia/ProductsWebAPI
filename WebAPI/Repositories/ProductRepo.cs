@@ -9,6 +9,13 @@ namespace WebAPI.Repositories
 {
     public class ProductRepo : IProductRepo
     {
+        private ProductsDBContext _context;
+
+        public ProductRepo(ProductsDBContext context)
+        {
+            _context = context;
+        }
+
         public IEnumerable<Product> GetProducts()
         {
             var products = new List<Product>()
